@@ -17,24 +17,6 @@ public class Furgon {
         furgonLoading = new ArrayList<>();
     }
 
-    public void uploadCoffee(Coffee coffee) {
-        if (furgonLoading.contains(coffee)) {
-            currentCapacity -= coffee.getSize();
-            furgonLoading.remove(coffee);
-            System.out.println("объект " + coffee + " был выгружен из " + getName());
-        }
-    else System.out.println("объект " + coffee + " не загружен в фуру, пожалуйста выберите из " +
-                "загруженных объектов что хотите выгрузить " + furgonLoading);
-    }
-
-    public void downloadCoffee(Coffee coffee) {
-        if (maxCapacity - currentCapacity >= coffee.getSize()) {
-            furgonLoading.add(coffee);
-            currentCapacity += coffee.getSize();
-            System.out.println("объект " + coffee + " был загружен в " + getName());
-        }else System.out.println("В фургоне недостаточно место для "+coffee);
-    }
-
     public String getName() {
         return name;
     }
@@ -49,5 +31,20 @@ public class Furgon {
 
     public List<Coffee> getFurgonLoading() {
         return furgonLoading;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMaxCapacity(Double maxCapacity) {
+        this.maxCapacity = maxCapacity;
+    }
+
+    public void setCurrentCapacity(Double currentCapacity) {
+        this.currentCapacity = currentCapacity;
+    }
+
+    public void setFurgonLoading(List<Coffee> furgonLoading) {
+        this.furgonLoading = furgonLoading;
     }
 }
